@@ -741,6 +741,7 @@ dependencies = [
  "chrono",
  "reqwest",
  "scraper",
+ "tokio",
 ]
 
 [[package]]

@@ -1,29 +1,30 @@
 use reqwest::Client;
 use std::error::Error;
+use tokio;
 
 mod parse_tower_hamlets;
 mod locations;
 
 pub async fn fetch_data(
-    client: &Client,
-    _url: &str,
+    client: Client,
     _loc: Option<locations::Council>
-) -> Result<(), Box<dyn Error>> {
-    // let response = client.get(url).send().await?;
-    // let body = response.text().await?;
-    
-    // ADD ASYNC SPAWNS HERE
-    // FETCH URLS
+) -> () {
+    let mut set = tokio::task::JoinSet::new();
     let urls = parse_tower_hamlets::generate_urls();
 
-    for i in urls {
-        let response = client.get(i).send().await?;
-        let body = response.text().await?;
-        parse_tower_hamlets::get_availability(body);
+    for url in urls {
+        let client_clone = client.clone();
+        set.spawn(async move {
+            let _ = scrape_data(client_clone, url).await;
+        });
     }
 
-    // parse_tower_hamlets::get_availability(body);
-    Ok(())
+    while let Some(_) = set.join_next().await {}
 }
 
-pub fn get_next_seven_days() -> () {}
+async fn scrape_data(client: Client, url: String) -> Result<(), Box<dyn Error>> {
+    let response = client.get(url).send().await?;
+    let body = response.text().await?;
+    parse_tower_hamlets::get_availability(body);
+    Ok(())
+}
