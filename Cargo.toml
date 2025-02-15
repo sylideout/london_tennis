@@ -1,0 +1,9 @@
+[workspace]
+resolver = "2"
+members = [
+"london_tennis_scraper", 
+"london_tennis_web_server"
+]
+
+[workspace.dependencies]
+london_tennis_scraper = { path = "./london_tennis_scraper"}

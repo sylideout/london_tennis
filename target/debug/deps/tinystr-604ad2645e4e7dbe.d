@@ -1,0 +1,12 @@
+/home/jerome/Documents/rustprojects/london_tennis/target/debug/deps/libtinystr-604ad2645e4e7dbe.rmeta: /home/jerome/.cargo/registry/src/index.crates.io-6f17d22bba15001f/tinystr-0.7.6/src/lib.rs /home/jerome/.cargo/registry/src/index.crates.io-6f17d22bba15001f/tinystr-0.7.6/src/macros.rs /home/jerome/.cargo/registry/src/index.crates.io-6f17d22bba15001f/tinystr-0.7.6/src/ascii.rs /home/jerome/.cargo/registry/src/index.crates.io-6f17d22bba15001f/tinystr-0.7.6/src/asciibyte.rs /home/jerome/.cargo/registry/src/index.crates.io-6f17d22bba15001f/tinystr-0.7.6/src/error.rs /home/jerome/.cargo/registry/src/index.crates.io-6f17d22bba15001f/tinystr-0.7.6/src/int_ops.rs /home/jerome/.cargo/registry/src/index.crates.io-6f17d22bba15001f/tinystr-0.7.6/src/unvalidated.rs /home/jerome/.cargo/registry/src/index.crates.io-6f17d22bba15001f/tinystr-0.7.6/src/ule.rs
+
+/home/jerome/Documents/rustprojects/london_tennis/target/debug/deps/tinystr-604ad2645e4e7dbe.d: /home/jerome/.cargo/registry/src/index.crates.io-6f17d22bba15001f/tinystr-0.7.6/src/lib.rs /home/jerome/.cargo/registry/src/index.crates.io-6f17d22bba15001f/tinystr-0.7.6/src/macros.rs /home/jerome/.cargo/registry/src/index.crates.io-6f17d22bba15001f/tinystr-0.7.6/src/ascii.rs /home/jerome/.cargo/registry/src/index.crates.io-6f17d22bba15001f/tinystr-0.7.6/src/asciibyte.rs /home/jerome/.cargo/registry/src/index.crates.io-6f17d22bba15001f/tinystr-0.7.6/src/error.rs /home/jerome/.cargo/registry/src/index.crates.io-6f17d22bba15001f/tinystr-0.7.6/src/int_ops.rs /home/jerome/.cargo/registry/src/index.crates.io-6f17d22bba15001f/tinystr-0.7.6/src/unvalidated.rs /home/jerome/.cargo/registry/src/index.crates.io-6f17d22bba15001f/tinystr-0.7.6/src/ule.rs
+
+/home/jerome/.cargo/registry/src/index.crates.io-6f17d22bba15001f/tinystr-0.7.6/src/lib.rs:
+/home/jerome/.cargo/registry/src/index.crates.io-6f17d22bba15001f/tinystr-0.7.6/src/macros.rs:
+/home/jerome/.cargo/registry/src/index.crates.io-6f17d22bba15001f/tinystr-0.7.6/src/ascii.rs:
+/home/jerome/.cargo/registry/src/index.crates.io-6f17d22bba15001f/tinystr-0.7.6/src/asciibyte.rs:
+/home/jerome/.cargo/registry/src/index.crates.io-6f17d22bba15001f/tinystr-0.7.6/src/error.rs:
+/home/jerome/.cargo/registry/src/index.crates.io-6f17d22bba15001f/tinystr-0.7.6/src/int_ops.rs:
+/home/jerome/.cargo/registry/src/index.crates.io-6f17d22bba15001f/tinystr-0.7.6/src/unvalidated.rs:
+/home/jerome/.cargo/registry/src/index.crates.io-6f17d22bba15001f/tinystr-0.7.6/src/ule.rs:
