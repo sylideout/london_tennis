@@ -6,11 +6,23 @@ mod locations;
 
 pub async fn fetch_data(
     client: &Client,
-    url: &str
+    _url: &str,
+    _loc: Option<locations::Council>
 ) -> Result<(), Box<dyn Error>> {
-    let response = client.get(url).send().await?;
-    let body = response.text().await?;
-    parse_tower_hamlets::get_availability(body);
+    // let response = client.get(url).send().await?;
+    // let body = response.text().await?;
+    
+    // ADD ASYNC SPAWNS HERE
+    // FETCH URLS
+    let urls = parse_tower_hamlets::generate_urls();
+
+    for i in urls {
+        let response = client.get(i).send().await?;
+        let body = response.text().await?;
+        parse_tower_hamlets::get_availability(body);
+    }
+
+    // parse_tower_hamlets::get_availability(body);
     Ok(())
 }
 
