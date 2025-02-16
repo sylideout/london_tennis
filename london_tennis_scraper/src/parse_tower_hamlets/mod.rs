@@ -39,10 +39,10 @@ fn extract_court(url: &str) -> String {
     todo!()
 }
 
-fn extract_time(html: &str) -> String {
+fn extract_time(html: Vec<&str>) -> String {
     todo!()
 }
 
-fn extract_available_courts(html: &str) -> String {
+fn extract_available_courts(html: Vec<&str>) -> String {
     todo!()
 }

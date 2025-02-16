@@ -13,6 +13,43 @@ pub struct CourtAvailability {
     url: String,
 }
 
+impl CourtAvailability {
+    fn new() -> Self {
+        Self {
+            date: String::from("2000-00-00"),
+            time: String::from("0000"),
+            court: String::from(""),
+            available_courts: 0,
+            url: String::from(""),
+        }
+    }
+
+    fn date(mut self, date: String) -> Self {
+        self.date = date;
+        self
+    }
+
+    fn time(mut self, time: String) -> Self {
+        self.time = time;
+        self
+    }
+
+    fn court(mut self, court: String) -> Self {
+        self.court = court;
+        self
+    }
+
+    fn available_courts(mut self, available_courts: i8) -> Self {
+        self.available_courts = available_courts;
+        self
+    }
+
+    fn url(mut self, url: String) -> Self {
+        self.url = url;
+        self
+    }
+}
+
 pub async fn fetch_data(
     client: Client,
     _loc: Option<locations::Council>
