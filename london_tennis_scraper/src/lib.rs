@@ -5,6 +5,14 @@ use tokio;
 mod parse_tower_hamlets;
 mod locations;
 
+struct CourtAvailability {
+    date: String,
+    time: String,
+    court: String,
+    available_courts: i8,
+    url: String,
+}
+
 pub async fn fetch_data(
     client: Client,
     _loc: Option<locations::Council>

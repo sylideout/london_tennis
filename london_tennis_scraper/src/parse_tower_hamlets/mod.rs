@@ -1,5 +1,8 @@
+use std::collections::HashMap;
 use scraper::{Html, Selector};
 use chrono::{Local, Duration};
+
+mod courts;
 
 pub(crate) fn get_availability(html: String) -> () {
     let document = Html::parse_document(&html);
@@ -13,19 +16,9 @@ pub(crate) fn get_availability(html: String) -> () {
 
 pub(crate) fn generate_urls() -> Vec<String> {
     let mut full_urls: Vec<String> = Vec::new();
-    let orginal_urls = vec![
-        "https://tennistowerhamlets.com/book/courts/bethnal-green-gardens/".to_string(),
-        "https://tennistowerhamlets.com/book/courts/king-edward-memorial-park/".to_string(),
-        "https://tennistowerhamlets.com/book/courts/poplar-rec-ground/".to_string(),
-        "https://tennistowerhamlets.com/book/courts/ropemakers-field/".to_string(),
-        "https://tennistowerhamlets.com/book/courts/st-johns-park/".to_string(),
-        "https://tennistowerhamlets.com/book/courts/victoria-park/".to_string(),
-        "https://tennistowerhamlets.com/book/courts/wapping-gardens/".to_string(),
-    ];
-
     let today = Local::now().date_naive();
 
-    orginal_urls
+    courts::TOWER_HAMLET_URLS
         .into_iter()
         .for_each(
         |url| {
