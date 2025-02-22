@@ -1,9 +1,9 @@
 use reqwest::Client;
-use london_tennis_scraper::fetch_data;
+use london_tennis_scraper::fetch_court_availabilities;
 
 
 #[tokio::main(flavor = "current_thread")]
 async fn main() {
     let client = Client::new();
-    let _ = fetch_data(client, None).await;
+    let _ = fetch_court_availabilities(client, None).await;
 }

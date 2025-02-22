@@ -50,13 +50,13 @@ impl CourtAvailability {
     }
 }
 
-pub async fn fetch_data(
+pub async fn fetch_court_availabilities(
     client: Client,
     _loc: Option<locations::Council>
 ) -> () {
     let mut set = tokio::task::JoinSet::new();
     let urls = parse_tower_hamlets::generate_urls();
-    let mut court_availabilities: Vec<String> = vec![];
+    let mut court_availabilities: Vec<CourtAvailability> = vec![];
 
     for url in urls {
         let client_clone = client.clone();
@@ -67,8 +67,7 @@ pub async fn fetch_data(
 
     while let Some(res) = set.join_next().await {
         if let Ok((url, html)) = res {
-            parse_tower_hamlets::get_court_availability(url, html);
-            court_availabilities.push("test".to_string());
+            parse_tower_hamlets::generate_court_availabilities(url, html);
         }
     }
 }
