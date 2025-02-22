@@ -5,6 +5,7 @@ use tokio;
 mod parse_tower_hamlets;
 mod locations;
 
+#[derive(Debug)]
 pub struct CourtAvailability {
     date: String,
     time: String,
@@ -53,7 +54,7 @@ impl CourtAvailability {
 pub async fn fetch_court_availabilities(
     client: Client,
     _loc: Option<locations::Council>
-) -> () {
+) -> Vec<CourtAvailability> {
     let mut set = tokio::task::JoinSet::new();
     let urls = parse_tower_hamlets::generate_urls();
     let mut court_availabilities: Vec<CourtAvailability> = vec![];
@@ -67,9 +68,12 @@ pub async fn fetch_court_availabilities(
 
     while let Some(res) = set.join_next().await {
         if let Ok((url, html)) = res {
-            parse_tower_hamlets::generate_court_availabilities(url, html);
+            court_availabilities.extend(
+                parse_tower_hamlets::generate_court_availabilities(url, html)
+            );
         }
     }
+    court_availabilities
 }
 
 async fn scrape_data(client: Client, url: String) -> Result<(String, String), Box<dyn Error>> {

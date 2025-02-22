@@ -21,21 +21,30 @@ pub(crate) fn generate_urls() -> Vec<String> {
     full_urls
 }
 
-pub(crate) fn generate_court_availabilities(url: String, html: String) -> () {
+pub(crate) fn generate_court_availabilities(url: String, html: String) -> Vec<CourtAvailability> {
     let date = extract_date(&url);
     let court = extract_court(&url);
     
     let document = Html::parse_document(&html);
     let selector = Selector::parse("tr").unwrap();
 
+    let mut court_availabilities = Vec::new();
+
     for element in document.select(&selector) {
         let court_information = element.text().collect::<Vec<&str>>();
         let time = extract_time(&court_information);
         let available_courts = extract_available_courts(&court_information);
-        println!("{:?}", court_information);
+        
+        court_availabilities.push(
+            CourtAvailability::new()
+                .date(date.clone())
+                .time(time.clone())
+                .court(court.clone())
+                .available_courts(available_courts)
+                .url(url.clone())
+        )
     }
-    ()
-    // todo!();
+    court_availabilities
 }
 
 fn extract_date(url: &str) -> String {
