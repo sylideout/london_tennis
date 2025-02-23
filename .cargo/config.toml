@@ -1,2 +1,2 @@
 [env]
-WEB_CLIENT = { value = "london-tennis-web-client", relative = true }
+WEB_CLIENT = { value = "london-tennis-web-client/dist", relative = true }
