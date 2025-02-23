@@ -1,5 +1,5 @@
 [package]
-name = "london_tennis_scraper"
+name = "london-tennis-scraper"
 version = "0.1.0"
 edition = "2021"
 
